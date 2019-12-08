@@ -10,7 +10,7 @@
     <nav class="navbar navbar-primary bg-primary fixed-top">
             <!-- Brand -->
         <button type="button" id="sidebarCollapse" class="btn btn-primary border-0" >
-                <i class="fas fa-bars"></i>&nbsp&nbsp&nbsp SMA Lawu
+                <i class="fas fa-bars"></i>&nbsp&nbsp&nbsp myKP
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
             {% if session.has('auth')%}
@@ -28,7 +28,7 @@
             {% if session.has('auth') == false %}
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        {{ link_to('/masuk', '<i class="fa fa-user"></i> mySMArt', 'class': 'btn btn-primary') }}
+                        {{ link_to('/masuk', '<i class="fa fa-user"></i> Masuk', 'class': 'btn btn-primary') }}
                     </li>
                 </ul>
             {% endif %}
