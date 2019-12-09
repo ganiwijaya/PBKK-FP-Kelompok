@@ -25,7 +25,7 @@
             {% if session.has('auth') == false %}
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        {{ link_to('/masuk', '<i class="fa fa-user"></i> Masuk/Daftar', 'class': 'btn btn-dark') }}
+                        {{ link_to('/masuk', '<i class="fa fa-user"></i> &nbsp Masuk/Daftar', 'class': 'btn btn-dark') }}
                     </li>
                 </ul>
             {% endif %}
