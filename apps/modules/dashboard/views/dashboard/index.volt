@@ -47,8 +47,10 @@
                                     <h5 class="card-title">{{ user.username }}</h5>
                                 </div>
                                 <div class="col-sm">
+                                    {%if user.username == "Ghannie Wijaya" %}
                                     <!-- <span class="btn btn-primary btn-sm float-right ml-3">Tersedia</span> -->
                                     <span class="btn btn-danger btn-sm float-right ml-3">Sudah diambil</span>
+                                    {% endif %}
                                 </div>
                             </div>
                             <h6>{{ user.nun }}</h6>
