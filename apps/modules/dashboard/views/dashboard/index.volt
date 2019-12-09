@@ -50,7 +50,7 @@
                                     {%if user.username == "Ghannie Wijaya" %}
                                     <span class="btn btn-danger btn-sm float-right ml-3">Sudah diambil</span>
                                     {% else %}
-                                    <span class="btn btn-primary btn-sm float-right ml-3">Tersedia</span>
+                                    <span class="btn btn-success btn-sm float-right ml-3">Tersedia</span>
                                     {% endif %}
                                 </div>
                             </div>
