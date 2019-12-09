@@ -330,4 +330,46 @@ class DashboardController extends Controller
 
     }
 
+    // PERUSAHAAN CONTROLLER
+
+    public function loginPerusahaanAction()
+    {
+        $request = new Request();
+        $username = $request->getPost('em');
+        $user = Perusahaan::findFirst("email='$username'");
+        $pass = $request->getPost('pw');
+        $users = Perusahaan::find();
+        // $this->view->users = $users;
+        // var_dump($pass);die();
+        if($user)
+        {
+            if($user->password == $pass){
+                $this->session->set('auth',[
+                    'id' => $user->id,
+                    'email' => $user->email,
+                    'password' => $user->password,
+                    'nama' => $user->nama,
+                    'alamat' => $user->alamat,
+                    'judul' => $user->judul,
+                    'posisi' => $user->posisi,
+                    'keterangan' => $user->keterangan,
+                    'status' => $user->status,
+
+                ]);
+                
+                $this->response->redirect('/beranda');
+                // var_dump("masuk");die();
+            }
+            else{
+                $this->flashSession->error('Password salah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+                $this->response->redirect('/masukPerusahaan');
+            }
+        }
+        else{
+            $this->flashSession->error('Akun tidak ditemukan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+            $this->response->redirect('/masukPerusahaan');
+        }
+        
+    }
+
 }   
