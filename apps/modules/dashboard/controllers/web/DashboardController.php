@@ -218,42 +218,6 @@ class DashboardController extends Controller
         $this->response->redirect('/masuk');
         $this->flashSession->success('Berhasil mendaftar. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
     }
-    
-
-    public function downloadAction()
-    {
-        $this->view->disable();
-
-        $id = $this->request->getPost('id');   
-
-        $users = Users::find();
-        $pdf = new FPDF();
-        $pdf->AddPage();
-        $pdf->SetFont("Arial", "B", 16);
-        $pdf->Cell(180,10,"PPDB SMA Lawu",1,1);
-
-        $pdf->Cell(90, 10, "ID", 1,0);
-        $pdf->SetFont("Arial");
-        $pdf->Cell(90, 10, "{$id}", 1,1);
-
-        $pdf->Cell(90, 10, "Nama", 1,0);
-        $pdf->SetFont("Arial");
-        $pdf->Cell(90, 10, "{$name}", 1,1);
-
-        $pdf->Cell(90, 10, "Asal Sekolah", 1,0);
-        $pdf->SetFont("Arial");
-        $pdf->Cell(90, 10, "{$school1}", 1,1);
-
-        $pdf->Cell(90, 10, "Sekolah Pilihan 1", 1,0);
-        $pdf->SetFont("Arial");
-        $pdf->Cell(90, 10, "{$school2}", 1,1);
-
-        $pdf->Cell(90, 10, "Sekolah Pilihan 2", 1,0);
-        $pdf->SetFont("Arial");
-        $pdf->Cell(90, 10, "{$school3}", 1,1);
-
-        $pdf->output();
-    }
 
     public function loginAction()
     {
