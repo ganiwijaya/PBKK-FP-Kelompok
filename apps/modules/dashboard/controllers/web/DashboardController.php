@@ -29,9 +29,7 @@ class DashboardController extends Controller
         $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
         $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
         $users = Users::find();
-
         $this->view->users = $users;
-        // $this->db->query("SELECT * FROM logs");
     }
 
     public function daftarAction()

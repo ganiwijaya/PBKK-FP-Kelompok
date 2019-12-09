@@ -51,6 +51,18 @@
         </nav>
 
         <div id="content">
+            <div class="row">
+                {% for user in users %}
+                <div class="col-3">
+                    <div class="card border-0 mb-3">
+                        <div class="card-body">
+                            <h4>{{ user.username }}</h4>
+                            {{ user.sekolah }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
             <div class="card mb-3 border-0">
                 <div class="card-body">
                     <h4>Pendaftar PPDB 2019</h4>
@@ -72,7 +84,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for user in users %}
+                            <!-- {% for user in users %}
                             <tr>
                                 <th>{{ user.username }}</th>
                                 <th>{{ user.sekolah }}</th>
@@ -82,7 +94,7 @@
                                 <th>{{ user.eng }}</th>
                                 <th>{{ user.nun }}</th>
                             </tr>
-                            {% endfor  %}
+                            {% endfor  %} -->
                         </tbody>
                     </table>
                 </div>
