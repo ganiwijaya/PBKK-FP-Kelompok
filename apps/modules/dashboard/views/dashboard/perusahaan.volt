@@ -4,7 +4,7 @@
     {% include "dashboard/partials/head.volt" %}
 </head>
 <body>
-    {% include "dashboard/partials/navbarmhs.volt" %}
+    {% include "dashboard/partials/navbarper.volt" %}
     <div class="wrapper">
         {% if session.has('auth')%}
         <nav id="sidebar" class="active">
