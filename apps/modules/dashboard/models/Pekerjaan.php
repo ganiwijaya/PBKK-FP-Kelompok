@@ -5,11 +5,11 @@ namespace Phalcon\Init\Dashboard\Models;
 use Phalcon\Mvc\Model;
 use Phalcon\Init\Dashboard\Models\Logs;
 
-class Mahasiswa extends Model
+class Pekerjaan extends Model
 {
 	public function initialize()
     {
-        $this->setSource('mahasiswa');
+        $this->setSource('pekerjaan');
     }
     
     public $id_pek;

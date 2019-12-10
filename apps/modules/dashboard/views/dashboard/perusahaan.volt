@@ -10,13 +10,10 @@
         <nav id="sidebar" class="active">
             <ul class="list-unstyled components">
                 <li class="active">
-                    {{ link_to('/beranda', '<i class="fa fa-home"></i> Utama', 'class': 'nav-link') }}
+                    {{ link_to('/perusahaan', '<i class="fa fa-home"></i> Beranda', 'class': 'nav-link') }}
                 </li>
                 <li>
-                    {{ link_to('/profil', '<i class="fa fa-user"></i> Profil', 'class': 'nav-link') }}
-                </li>
-                <li>
-                    {{ link_to('/ppdb', '<i class="fa fa-list"></i> KP', 'class': 'nav-link') }}
+                    {{ link_to('/perusahaan/pekerjaan', '<i class="fa fa-list"></i> Pekerjaan', 'class': 'nav-link') }}
                 </li>
             </ul>
         </nav>

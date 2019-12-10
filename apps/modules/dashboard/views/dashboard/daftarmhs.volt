@@ -41,8 +41,8 @@
                                 <label for="nrp">NRP</label>
                                 <input type="text" class="form-control" id="nrp" name="nrp" placeholder="NRP Baru" required>
                             </div>
-                            <input type="hidden" id="id_pek" name="id_pek" value="1">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <!-- <input type="hidden" id="id_pek" name="id_pek" value="1"> -->
+                            <button type="submit" class="btn btn-success">Submit</button>
                         </form>
                         {% endif %}
                     </div>
