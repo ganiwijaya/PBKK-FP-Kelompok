@@ -23,8 +23,8 @@
                                 Tentukan ingin magang di mana.
                             </div>
                             <div class="card-footer border-0">
-                                {{ link_to('/akun/masuk/mahasiswa', 'Masuk', 'class': 'btn btn-light') }}
-                                {{ link_to('/akun/daftar/mahasiswa', 'Daftar', 'class': 'btn btn-outline-light') }}
+                                {{ link_to('/akun/masuk/mahasiswa', 'Masuk', 'class': 'btn btn-light text-success') }}
+                                {{ link_to('/akun/daftar/mahasiswa', 'Daftar', 'class': 'btn btn-link text-white') }}
                             </div>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
                                 Kenalkan perusahaan Anda.
                             </div>
                             <div class="card-footer border-0">
-                                {{ link_to('/akun/masuk/perusahaan', 'Masuk', 'class': 'btn btn-light btn') }}
-                                {{ link_to('/akun/daftar/perusahaan', 'Daftar', 'class': 'btn btn-outline-light') }}
+                                {{ link_to('/akun/masuk/perusahaan', 'Masuk', 'class': 'btn btn-light text-primary') }}
+                                {{ link_to('/akun/daftar/perusahaan', 'Daftar', 'class': 'btn btn-link text-white') }}
                             </div>
                         </div>
                     </div>
