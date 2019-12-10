@@ -24,7 +24,7 @@
                         </div>
                         {% endif %}
                         {% if session.has('auth') == false %}
-                        <form action="{{ url('/post_register') }}" method="POST">
+                        <form action="{{ url('/post_mhs') }}" method="POST">
                             <h5>Akun</h5>
                             <div class="form-group">
                                 <label for="email">Email</label>
