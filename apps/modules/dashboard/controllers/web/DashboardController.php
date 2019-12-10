@@ -369,7 +369,7 @@ class DashboardController extends Controller
                     'judul' => $user->judul,
                     'posisi' => $user->posisi,
                     'keterangan' => $user->keterangan,
-                    'status' => $user->status,
+                    'status' => $user->status
 
                 ]);
                 
@@ -386,6 +386,74 @@ class DashboardController extends Controller
             $this->response->redirect('/masukPerusahaan');
         }
         
+    }
+
+    public function registerPerusahaanAction()
+    {
+        $user = new Users();
+        $request = new Request();
+        $user->email = $request->getPost('email');
+        $user->password = $request->getPost('password');
+        $user->nama = $request->getPost('nama');
+        $user->alamat = $request->getPost('alamat');
+        $user->judul = $request->getPost('judul');
+        $user->posisi = $request->getPost('posisi');
+        $user->keterangan = $request->getPost('keterangan');
+        $user->status = $request->getPost('status');
+    	$user->save();
+        $this->response->redirect('/masukPerusahaan');
+        $this->flashSession->success('Berhasil mendaftar. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+    }
+
+    // MAHASISWA CONTROLLER
+
+    public function loginMahasiswaAction()
+    {
+        $request = new Request();
+        $username = $request->getPost('em');
+        $user = Perusahaan::findFirst("email='$username'");
+        $pass = $request->getPost('pw');
+        $users = Perusahaan::find();
+        // $this->view->users = $users;
+        // var_dump($pass);die();
+        if($user)
+        {
+            if($user->password == $pass){
+                $this->session->set('auth',[
+                    'id' => $user->id,
+                    'email' => $user->email,
+                    'password' => $user->password,
+                    'nama' => $user->nama,
+                    'nrp' => $user->nrp
+
+                ]);
+                
+                $this->response->redirect('/beranda');
+                // var_dump("masuk");die();
+            }
+            else{
+                $this->flashSession->error('Password salah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+                $this->response->redirect('/masukMahasiswa');
+            }
+        }
+        else{
+            $this->flashSession->error('Akun tidak ditemukan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+            $this->response->redirect('/masukMahasiswa');
+        }
+        
+    }
+
+    public function registerMahasiswaAction()
+    {
+        $user = new Users();
+        $request = new Request();
+        $user->email = $request->getPost('email');
+        $user->password = $request->getPost('password');
+        $user->nama = $request->getPost('nama');
+        $user->nrp = $request->getPost('nrp');
+    	$user->save();
+        $this->response->redirect('/masukMahasiswa');
+        $this->flashSession->success('Berhasil mendaftar. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
     }
 
 }   
