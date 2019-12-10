@@ -73,6 +73,13 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'action' => 'masukper'
 	]);
 
+	$router->addGet('/perusahaan/lowongan', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'tambahpekerjaan'
+	]);
+
 	$router->addGet('/beranda', [
 	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
 		'module' => 'dashboard',
@@ -169,6 +176,13 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 		'module' => 'dashboard',
 	    'controller' => 'Dashboard',
 	    'action' => 'registermahasiswa'
+	]);
+
+	$router->addPost('/post_pek', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'tambahpekerjaan'
 	]);
 
 	$router->addPost('/login', [

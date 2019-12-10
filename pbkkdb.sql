@@ -153,7 +153,8 @@ CREATE TABLE `pekerjaan` (
   `posisi` varchar(255) NOT NULL,
   `keterangan` varchar(255) NOT NULL,
   `status` int(1) NOT NULL,
-  `id_per` int(11) NOT NULL
+  `id_per` int(11) NOT NULL,
+  `id_mhs` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `mahasiswa` (
@@ -161,8 +162,7 @@ CREATE TABLE `mahasiswa` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `nrp` varchar(14) NOT NULL,
-  `id_pek` int(11) NOT NULL
+  `nrp` varchar(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `perusahaan`
@@ -173,10 +173,10 @@ ALTER TABLE `pekerjaan`
   ADD PRIMARY KEY (`id_pek`),
   MODIFY `id_pek` int(11) NOT NULL AUTO_INCREMENT COMMENT '',
   ADD KEY `id_per` (`id_per`),
-  ADD CONSTRAINT `id_per` FOREIGN KEY (`id_per`) REFERENCES `perusahaan` (`id_per`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD KEY `id_mhs` (`id_mhs`),
+  ADD CONSTRAINT `id_per` FOREIGN KEY (`id_per`) REFERENCES `perusahaan` (`id_per`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `id_mhs` FOREIGN KEY (`id_mhs`) REFERENCES `mahasiswa` (`id_mhs`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`id_mhs`),
-  MODIFY `id_mhs` int(11) NOT NULL AUTO_INCREMENT COMMENT '',
-  ADD KEY `id_pek` (`id_pek`),
-  ADD CONSTRAINT `id_pek` FOREIGN KEY (`id_pek`) REFERENCES `pekerjaan` (`id_pek`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `id_mhs` int(11) NOT NULL AUTO_INCREMENT COMMENT '';

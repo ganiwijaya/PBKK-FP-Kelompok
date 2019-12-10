@@ -18,6 +18,7 @@ class Mahasiswa extends Model
     public $keterangan;
     public $status;
     public $id_per;
+    public $id_mhs;
 
     // public function gen_uuid() {
     //     return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',

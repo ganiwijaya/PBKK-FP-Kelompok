@@ -17,7 +17,6 @@ class Mahasiswa extends Model
     public $password;
     public $nama;
     public $nrp;
-    public $id_pek;
 
     // public function gen_uuid() {
     //     return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',

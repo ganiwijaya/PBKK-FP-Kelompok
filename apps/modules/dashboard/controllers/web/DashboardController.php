@@ -305,6 +305,22 @@ class DashboardController extends Controller
         $this->flashSession->success('Berhasil mendaftar. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
     }
 
+    public function tambahpekerjaanAction()
+    {
+        $user = new Pekerjaan();
+        $request = new Request();
+        $user->judul = $request->getPost('judul');
+        $user->posisi = $request->getPost('posisi');
+        $user->keterangan = $request->getPost('keterangan');
+        $user->status = $request->getPost('status');
+        $user->id_pek = $request->getPost('id_pek');
+        $user->id_mhs = $request->getPost('id_mhs');
+        $user->save();
+        // var_dump($user->getMessages());die();
+        $this->response->redirect('/perusahaan/lowongan');
+        $this->flashSession->success('Berhasil menambahkan pekerjaan. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+    }
+
     public function loginAction()
     {
         $request = new Request();
