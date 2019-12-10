@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {% include "dashboard/head.volt" %}
+    {% include "dashboard/partials/head.volt" %}
 </head>
 <body>
-    {% include "dashboard/navbar.volt" %}
+    {% include "dashboard/partials/navbar.volt" %}
     <div class="wrapper">
         <div class="container">
             <div id="content">
                 <h6>{{ link_to('/akun', '<i class="fa fa-arrow-left"></i>', 'class': 'mb-3') }} &nbsp&nbsp&nbsp Kembali</h6>
-                <div class="card border-0 mb-3">
+                <div class="card border-0 mb-3 bg-success text-light">
                     <div class="card-body">
                         <h4>Daftar sebagai Mahasiswa</h4>
                         Sudah mendaftar? {{ link_to('/akun/masuk/mahasiswa', 'Masuk', 'class': 'font-weight-bold') }} sekarang.

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {% include "dashboard/head.volt" %}
+    {% include "dashboard/partials/head.volt" %}
 </head>
 <body>
-    {% include "dashboard/navbar.volt" %}
+    {% include "dashboard/partials/navbar.volt" %}
     <div class="wrapper">
         <div class="container">
             <div id="content">

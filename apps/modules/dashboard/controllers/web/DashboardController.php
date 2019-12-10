@@ -291,12 +291,12 @@ class DashboardController extends Controller
             }
             else{
                 $this->flashSession->error('Password salah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
-                $this->response->redirect('/masuk');
+                $this->response->redirect('/akun/masuk/mahasiswa');
             }
         }
         else{
             $this->flashSession->error('Akun tidak ditemukan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
-            $this->response->redirect('/masuk');
+            $this->response->redirect('/akun/masuk/mahasiswa');
         }
         
     }
@@ -378,12 +378,12 @@ class DashboardController extends Controller
             }
             else{
                 $this->flashSession->error('Password salah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
-                $this->response->redirect('/masukPerusahaan');
+                $this->response->redirect('/akun/masuk/perusahaan');
             }
         }
         else{
             $this->flashSession->error('Akun tidak ditemukan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
-            $this->response->redirect('/masukPerusahaan');
+            $this->response->redirect('/akun/masuk/perusahaan');
         }
         
     }

@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>mySMArt</title>
-
-    {{ assets.outputCss() }}
-    {{ assets.outputJs() }}
+    {% include "dashboard/partials/head.volt" %}
 </head>
 <body>
-    {% include "dashboard/navbarmhs.volt" %}
+    {% include "dashboard/partials/navbarmhs.volt" %}
     <div class="wrapper">
         {% if session.has('auth')%}
         <nav id="sidebar" class="active">
@@ -19,7 +16,7 @@
                     {{ link_to('/profil', '<i class="fa fa-user"></i> Profil', 'class': 'nav-link') }}
                 </li>
                 <li>
-                    {{ link_to('/ppdb', '<i class="fa fa-list"></i> PPDB', 'class': 'nav-link') }}
+                    {{ link_to('/ppdb', '<i class="fa fa-list"></i> KP', 'class': 'nav-link') }}
                 </li>
             </ul>
         </nav>
