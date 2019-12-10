@@ -5,6 +5,9 @@ namespace Phalcon\Init\Dashboard\Controllers\Web;
 use Phalcon\Mvc\Controller;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Init\Dashboard\Models\Users;
+use Phalcon\Init\Dashboard\Models\Mahasiswa;
+use Phalcon\Init\Dashboard\Models\Perusahaan;
+use Phalcon\Init\Dashboard\Models\Pekerjaan;
 use Phalcon\Http\Request;
 use Phalcon\Events\Manager as EventsManager;
 
@@ -253,8 +256,10 @@ class DashboardController extends Controller
         $user->ind = $request->getPost('ind');
         $user->mtk = $request->getPost('mtk');
         $user->eng = $request->getPost('eng');
+        $user->nrp = $request->getPost('nrp');
+        $user->id_pek = $request->getPost('id_pek');
     	$user->save();
-        $this->response->redirect('/masuk');
+        $this->response->redirect('/akun/masuk/mahasiswa');
         $this->flashSession->success('Berhasil mendaftar. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
     }
 
@@ -280,7 +285,8 @@ class DashboardController extends Controller
         $user->nama = $request->getPost('nama');
         $user->nrp = $request->getPost('nrp');
         $user->id_pek = $request->getPost('id_pek');
-    	$user->save();
+        $user->save();
+        // var_dump($user->getMessages());die();
         $this->response->redirect('/akun/masuk/mahasiswa');
         $this->flashSession->success('Berhasil mendaftar. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
     }

@@ -25,7 +25,6 @@
                         {% endif %}
                         {% if session.has('auth') == false %}
                         <form action="{{ url('/post_mhs') }}" method="POST">
-                            <h5>Akun</h5>
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="sekolah@contoh.com" required>
@@ -35,14 +34,14 @@
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                             </div>
                             <div class="form-group">
-                                <label for="username">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="username" name="username" placeholder="Nama Lengkap" required>
+                                <label for="nama">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap" required>
                             </div>
                             <div class="form-group">
                                 <label for="nrp">NRP</label>
                                 <input type="text" class="form-control" id="nrp" name="nrp" placeholder="NRP Baru" required>
                             </div>
-                            <input type="hidden" id="id_pek" name="id_pek" value="0">
+                            <input type="hidden" id="id_pek" name="id_pek" value="1">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                         {% endif %}
