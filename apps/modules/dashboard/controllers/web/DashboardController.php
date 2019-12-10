@@ -260,7 +260,7 @@ class DashboardController extends Controller
 
     public function registerperusahaanAction()
     {
-        $user = new Users();
+        $user = new Perusahaan();
         $request = new Request();
         $user->email = $request->getPost('email');
         $user->password = $request->getPost('password');
@@ -273,7 +273,7 @@ class DashboardController extends Controller
 
     public function registermahasiswaAction()
     {
-        $user = new Users();
+        $user = new Mahasiswa();
         $request = new Request();
         $user->email = $request->getPost('email');
         $user->password = $request->getPost('password');
@@ -368,9 +368,9 @@ class DashboardController extends Controller
     {
         $request = new Request();
         $username = $request->getPost('em');
-        $user = Perusahaan::findFirst("email='$username'");
+        $user = Mahasiswa::findFirst("email='$username'");
         $pass = $request->getPost('pw');
-        $users = Perusahaan::find();
+        $users = Mahasiswa::find();
         // $this->view->users = $users;
         // var_dump($pass);die();
         if($user)
