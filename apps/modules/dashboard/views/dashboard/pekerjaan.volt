@@ -31,8 +31,9 @@
             {% if session.has('auth')%}
             <div class="card mb-3 border-0">
                 <div class="card-body">
-                    <h4>Lowongan Pekerjaan</h4>
-                    Daftar lowongan yang Anda buat.
+                    <h4>Lowongan KP</h4>
+                    Daftar kerja praktik yang Anda buat.
+                    {{ link_to('/perusahaan/pekerjaan/tambah', 'Tambah', 'class': 'btn btn-success') }}
                 </div>
             </div>
             {{ flashSession.output() }}
@@ -51,6 +52,7 @@
                         <tbody>
                             {% for kerja in pekerjaan %}
                             <tr>
+                                {%if session.get('auth')['id_per'] == kerja.id_per %}
                                 <th>{{ kerja.judul }}</th>
                                 <th>{{ kerja.posisi }}</th>
                                 <th>{{ kerja.keterangan }}</th>
@@ -61,7 +63,11 @@
                                     <span class="btn btn-success btn-sm">Tersedia</span>
                                     {% endif %}
                                 </th>
-                                <th>Hapus</th>
+                                <th>
+                                    <!-- <a href="{{ url('/perusahaan/pekerjaan/hapus/' ~ pekerjaan.id_pek) }}">Hapus</a> -->
+                                    {{ link_to('/perusahaan/pekerjaan/hapus ~ kerja.id_pek', 'Hapus', 'class': 'btn btn-danger btn-sm') }}
+                                </th>
+                                {% endif %}
                             </tr>
                             {% endfor  %}
                         </tbody>

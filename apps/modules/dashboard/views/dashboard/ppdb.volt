@@ -39,83 +39,35 @@
                 </div>
             </div>
             {{ flashSession.output() }}
-            <div class="card mb-3 border-0 mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm">
-                            <h5>Data Anda</h5>
-                        </div>
-                        <div class="col-sm">
-                            <div class="dropdown">
-                                <button type="button" class="btn btn-primary btn-sm float-right mr-3y" data-toggle="dropdown">
-                                    <i class="fa fa-list"></i> Kelola
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    {{ link_to('/ppdb/edit', 'Edit', 'class': 'dropdown-item') }}
-                                    <form method="post" action="{{ url('/profil/downloadpdf') }}">   
-                                        <!-- <input type="submit" name="download" class="btn btn-success btn-sm float-right mr-3" value="Download"> -->
-                                        <button type="submit" name="download" id="download" class="dropdown-item">Download</button>
-                                    </form>
-                                </div>
-                            </div>       
-                        </div>
-                    </div>
-                    <hr>
-                    NISN<br>
-                    <strong>{{ session.get('auth')['nisn'] }}</strong>
-                    <hr>
-                    Asal Sekolah<br>
-                    <strong>{{ session.get('auth')['sekolah'] }}</strong>
-                    <hr>
-                    Nilai Ujian SMP<br>
-                    <strong>{{ session.get('auth')['nun'] }}</strong>
-                    <hr>
-                    Rincian:
-                    <div class="row">
-                        <div class="col-sm">
-                            IPA<br>
-                            <strong>{{ session.get('auth')['ipa'] }}</strong>
-                        </div>
-                        <div class="col-sm">
-                            B. Indonesia<br>
-                            <strong>{{ session.get('auth')['ind'] }}</strong>
-                        </div>
-                        <div class="col-sm">
-                            Matematika<br>
-                            <strong>{{ session.get('auth')['mtk'] }}</strong>
-                        </div>
-                        <div class="col-sm">
-                            B. Inggris<br>
-                            <strong>{{ session.get('auth')['eng'] }}</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="card border-0">
                 <div class="card-body">
-                    <h5>Data PPDB</h5>
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Nama</th>
-                                <th>Asal Sekolah</th>
-                                <th>IPA</th>
-                                <th>B. Indonesia</th>
-                                <th>Matematika</th>
-                                <th>B. Inggris</th>
-                                <th>Total</th>
+                                <th>Judul</th>
+                                <th>Posisi</th>
+                                <th>Keterangan</th>
+                                <th>Status</th>
+                                <th>Atur</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for user in users %}
+                            {% for kerja in pekerjaan %}
                             <tr>
-                                <th>{{ user.username }}</th>
-                                <th>{{ user.sekolah }}</th>
-                                <th>{{ user.ipa }}</th>
-                                <th>{{ user.ind }}</th>
-                                <th>{{ user.mtk }}</th>
-                                <th>{{ user.eng }}</th>
-                                <th>{{ user.nun }}</th>
+                                <th>{{ kerja.judul }}</th>
+                                <th>{{ kerja.posisi }}</th>
+                                <th>{{ kerja.keterangan }}</th>
+                                <th>
+                                    {%if kerja.status == "1" %}
+                                    <span class="btn btn-danger btn-sm">Sudah diambil</span>
+                                    {% else %}
+                                    <span class="btn btn-success btn-sm">Tersedia</span>
+                                    {% endif %}
+                                </th>
+                                <th>
+                                    <span class="btn btn-danger btn-sm">Sudah diambil</span>
+                                    {{ link_to('/perusahaan/pekerjaan/hapus ~ pekerjaan.id_pek', 'Batalkan', 'class': 'btn btn-primary btn-sm') }}
+                                </th>
                             </tr>
                             {% endfor  %}
                         </tbody>

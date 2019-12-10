@@ -31,8 +31,8 @@ class DashboardController extends Controller
         $this->assets->addJs('//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', false);
         $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
         $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
-        $users = Users::find();
-        $this->view->users = $users;
+        $pekerjaan = Pekerjaan::find();
+        $this->view->pekerjaan = $pekerjaan;
     }
 
     public function daftarmhsAction()
@@ -233,8 +233,8 @@ class DashboardController extends Controller
         $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
         $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
 
-        $users = Users::find();
-        $this->view->users = $users;
+        $pekerjaan = Pekerjaan::find();
+        $this->view->pekerjaan = $pekerjaan;
     }
 
     public function ppdb2019Action()
@@ -298,7 +298,7 @@ class DashboardController extends Controller
         $user->password = $request->getPost('password');
         $user->nama = $request->getPost('nama');
         $user->nrp = $request->getPost('nrp');
-        $user->id_pek = $request->getPost('id_pek');
+        $user->sudahambil = $request->getPost('sudahambil');
         $user->save();
         // var_dump($user->getMessages());die();
         $this->response->redirect('/akun/masuk/mahasiswa');
@@ -321,6 +321,20 @@ class DashboardController extends Controller
         $this->view->pekerjaan = $pekerjaan;
     }
 
+    public function pekerjaantambahAction()
+    {
+        $this->view->pick('dashboard/pekerjaantambah');
+        $this->assets->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false);
+        $this->assets->addCss('//geniuskaranganyar.com/assets/extra/css/style.css', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/solid.js', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/fontawesome.js', false);
+        $this->assets->addJs('//code.jquery.com/jquery-3.3.1.slim.min.js', false);
+        $this->assets->addJs('//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', false);
+        $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
+        $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
+
+    }
+
     public function tambahpekerjaanAction()
     {
         $user = new Pekerjaan();
@@ -329,11 +343,11 @@ class DashboardController extends Controller
         $user->posisi = $request->getPost('posisi');
         $user->keterangan = $request->getPost('keterangan');
         $user->status = $request->getPost('status');
-        $user->id_pek = $request->getPost('id_pek');
+        $user->id_per = $request->getPost('id_per');
         $user->id_mhs = $request->getPost('id_mhs');
         $user->save();
         // var_dump($user->getMessages());die();
-        $this->response->redirect('/perusahaan/lowongan');
+        $this->response->redirect('/perusahaan/pekerjaan');
         $this->flashSession->success('Berhasil menambahkan pekerjaan. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
     }
 
@@ -434,7 +448,7 @@ class DashboardController extends Controller
                     'password' => $user->password,
                     'nama' => $user->nama,
                     'nrp' => $user->nrp,
-                    'id_pek' => $user->id_pek
+                    'sudahambil' => $user->sudahambil
 
                 ]);
                 
@@ -461,14 +475,17 @@ class DashboardController extends Controller
 
     public function hapusAction()
     {
-        $users = Users::findFirstById($id);
+        $pekerjaan = Pekerjaan::findFirstById($id_pek);
   
-        if (!$users->delete()) {
-        echo "Gagal Hapus Data";
+        if (!$pekerjaan->delete()) 
+        {
+            $this->flashSession->error('Gagal hapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+            $this->response->redirect('/perusahaan/pekerjaan');
         }
         else
         {
-        echo "Berhasil Hapus Data";
+            $this->flashSession->success('Berhasil hapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+            $this->response->redirect('/perusahaan/pekerjaan');
         }
     }
 
