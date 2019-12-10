@@ -32,9 +32,9 @@ class DashboardController extends Controller
         $this->view->users = $users;
     }
 
-    public function daftarAction()
+    public function daftarmhsAction()
     {
-        $this->view->pick('dashboard/daftar');
+        $this->view->pick('dashboard/daftarmhs');
         $this->assets->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false);
         $this->assets->addCss('//geniuskaranganyar.com/assets/extra/css/style.css', false);
         $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/solid.js', false);
@@ -45,9 +45,48 @@ class DashboardController extends Controller
         $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
     }
 
-    public function masukAction()
+    public function daftarperAction()
     {
-        $this->view->pick('dashboard/masuk');
+        $this->view->pick('dashboard/daftarper');
+        $this->assets->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false);
+        $this->assets->addCss('//geniuskaranganyar.com/assets/extra/css/style.css', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/solid.js', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/fontawesome.js', false);
+        $this->assets->addJs('//code.jquery.com/jquery-3.3.1.slim.min.js', false);
+        $this->assets->addJs('//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', false);
+        $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
+        $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
+    }
+
+    public function akunAction()
+    {
+        $this->view->pick('dashboard/akun');
+        $this->assets->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false);
+        $this->assets->addCss('//geniuskaranganyar.com/assets/extra/css/style.css', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/solid.js', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/fontawesome.js', false);
+        $this->assets->addJs('//code.jquery.com/jquery-3.3.1.slim.min.js', false);
+        $this->assets->addJs('//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', false);
+        $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
+        $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
+    }
+
+    public function masukmhsAction()
+    {
+        $this->view->pick('dashboard/masukmhs');
+        $this->assets->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false);
+        $this->assets->addCss('//geniuskaranganyar.com/assets/extra/css/style.css', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/solid.js', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/fontawesome.js', false);
+        $this->assets->addJs('//code.jquery.com/jquery-3.3.1.slim.min.js', false);
+        $this->assets->addJs('//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', false);
+        $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
+        $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
+    }
+    
+    public function masukperAction()
+    {
+        $this->view->pick('dashboard/masukper');
         $this->assets->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false);
         $this->assets->addCss('//geniuskaranganyar.com/assets/extra/css/style.css', false);
         $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/solid.js', false);
@@ -292,6 +331,19 @@ class DashboardController extends Controller
         $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
         $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
 
+    }
+
+    public function errorAction()
+    {
+        $this->view->pick('dashboard/error');
+        $this->assets->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false);
+        $this->assets->addCss('//geniuskaranganyar.com/assets/extra/css/style.css', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/solid.js', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/fontawesome.js', false);
+        $this->assets->addJs('//code.jquery.com/jquery-3.3.1.slim.min.js', false);
+        $this->assets->addJs('//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', false);
+        $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
+        $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
     }
 
     // PERUSAHAAN CONTROLLER

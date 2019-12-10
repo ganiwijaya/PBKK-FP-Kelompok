@@ -1,6 +1,8 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container">
-        {{ link_to('/', 'myKP', 'class': 'btn btn-dark border-0') }}
+        <button type="button" id="sidebarCollapse" class="btn btn-dark border-0" >
+                <i class="fas fa-bars"></i>&nbsp&nbsp&nbsp myKP
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
             {% if session.has('auth')%}
                 <div class="dropdown">

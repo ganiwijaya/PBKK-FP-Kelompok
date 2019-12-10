@@ -31,18 +31,46 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'action' => isset($modules[$defaultModule]['defaultAction']) ? $modules[$defaultModule]['defaultAction'] : 'index'
 	]);
 
-	$router->addGet('/daftar', [
+	$router->addGet('/akun/daftar/mahasiswa', [
 	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
 		'module' => 'dashboard',
 	    'controller' => 'Dashboard',
-	    'action' => 'daftar'
+	    'action' => 'daftarmhs'
 	]);
 
-	$router->addGet('/masuk', [
+	$router->addGet('/akun/daftar/perusahaan', [
 	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
 		'module' => 'dashboard',
 	    'controller' => 'Dashboard',
-	    'action' => 'masuk'
+	    'action' => 'daftarper'
+	]);
+
+	$router->addGet('/akun', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'akun'
+	]);
+
+	$router->addGet('/akun/masuk/mahasiswa', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'masukmhs'
+	]);
+
+	$router->addGet('/akun/masuk', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'error'
+	]);
+
+	$router->addGet('/akun/masuk/perusahaan', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'masukper'
 	]);
 
 	$router->addGet('/beranda', [
@@ -127,6 +155,13 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 		'module' => 'dashboard',
 	    'controller' => 'Dashboard',
 	    'action' => 'login'
+	]);
+
+	$router->addPost('/loginPerusahaan', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'loginPerusahaan'
 	]);
 
 	$router->addPost('/logout', [
