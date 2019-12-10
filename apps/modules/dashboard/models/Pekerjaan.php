@@ -12,12 +12,12 @@ class Mahasiswa extends Model
         $this->setSource('mahasiswa');
     }
     
-    public $id_mhs;
-    public $email;
-    public $password;
-    public $nama;
-    public $nrp;
     public $id_pek;
+    public $judul;
+    public $posisi;
+    public $keterangan;
+    public $status;
+    public $id_per;
 
     // public function gen_uuid() {
     //     return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
