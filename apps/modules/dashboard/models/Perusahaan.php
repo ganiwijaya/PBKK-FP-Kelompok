@@ -12,15 +12,11 @@ class Perusahaan extends Model
         $this->setSource('perusahaan');
     }
     
-    public $id;
+    public $id_per;
     public $email;
     public $password;
     public $nama;
     public $alamat;
-    public $judul;
-    public $posisi;
-    public $keterangan;
-    public $status;
 
     // public function gen_uuid() {
     //     return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',

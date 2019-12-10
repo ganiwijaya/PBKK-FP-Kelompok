@@ -150,6 +150,20 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'action' => 'store'
 	]);
 
+	$router->addPost('/post_per', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'registerperusahaan'
+	]);
+
+	$router->addPost('/post_mhs', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'registermahasiswa'
+	]);
+
 	$router->addPost('/login', [
 	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
 		'module' => 'dashboard',
@@ -157,11 +171,18 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'action' => 'login'
 	]);
 
-	$router->addPost('/loginPerusahaan', [
+	$router->addPost('/login_per', [
 	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
 		'module' => 'dashboard',
 	    'controller' => 'Dashboard',
-	    'action' => 'loginPerusahaan'
+	    'action' => 'loginperusahaan'
+	]);
+
+	$router->addPost('/login_mhs', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'loginmahasiswa'
 	]);
 
 	$router->addPost('/logout', [

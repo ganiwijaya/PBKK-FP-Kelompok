@@ -140,21 +140,43 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 CREATE TABLE `perusahaan` (
-  `id` int(11) NOT NULL,
+  `id_per` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `alamat` varchar(255) NOT NULL,
+  `alamat` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `pekerjaan` (
+  `id_pek` int(11) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `posisi` varchar(255) NOT NULL,
   `keterangan` varchar(255) NOT NULL,
-  `status` int(1) NOT NULL
+  `status` int(1) NOT NULL,
+  `id_per` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `mahasiswa` (
-  `id` int(11) NOT NULL,
+  `id_mhs` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `nrp` varchar(14) NOT NULL
+  `nrp` varchar(14) NOT NULL,
+  `id_pek` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `perusahaan`
+  ADD PRIMARY KEY (`id_per`),
+  MODIFY `id_per` int(11) NOT NULL AUTO_INCREMENT COMMENT '';
+
+ALTER TABLE `pekerjaan`
+  ADD PRIMARY KEY (`id_pek`),
+  MODIFY `id_pek` int(11) NOT NULL AUTO_INCREMENT COMMENT '',
+  ADD KEY `id_per` (`id_per`),
+  ADD CONSTRAINT `id_per` FOREIGN KEY (`id_per`) REFERENCES `perusahaan` (`id_per`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `mahasiswa`
+  ADD PRIMARY KEY (`id_mhs`),
+  MODIFY `id_mhs` int(11) NOT NULL AUTO_INCREMENT COMMENT '',
+  ADD KEY `id_pek` (`id_pek`),
+  ADD CONSTRAINT `id_pek` FOREIGN KEY (`id_pek`) REFERENCES `pekerjaan` (`id_pek`) ON DELETE CASCADE ON UPDATE CASCADE;
