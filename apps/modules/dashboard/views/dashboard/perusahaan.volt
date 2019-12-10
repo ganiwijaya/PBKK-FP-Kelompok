@@ -34,7 +34,7 @@
             <div class="card border-0">
                 <div class="card-body">
                     <h4>Selamat Datang, <span>{{ session.get('auth')['nama'] }}</span></h4>
-                    NRP Anda adalah <strong>{{ session.get('auth')['nrp'] }}</strong>
+                    Alamat Anda adalah <strong>{{ session.get('auth')['alamat'] }}</strong>
                 </div>
             </div>
             {% endif %}

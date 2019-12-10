@@ -6,7 +6,7 @@
         {% if session.has('auth')%}
             <div class="dropdown">
                 <button type="button" class="btn btn-success" data-toggle="dropdown">
-                    {{ session.get('auth')['username'] }}
+                    {{ session.get('auth')['nama'] }}
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <form action="{{url('/logout')}}" method="post">

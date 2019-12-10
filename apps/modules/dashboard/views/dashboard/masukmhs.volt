@@ -24,7 +24,7 @@
                         </div>
                         {% endif %}
                         {% if session.has('auth') == false %}
-                        <form action="{{url('/login')}}" method="post">
+                        <form action="{{url('/login_mhs')}}" method="post">
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" name="em" class="form-control">

@@ -24,10 +24,10 @@
                         </div>
                         {% endif %}
                         {% if session.has('auth') == false %}
-                        <form action="{{ url('/post_register') }}" method="POST">
+                        <form action="{{ url('/post_per') }}" method="POST">
                             <div class="form-group">
-                                <label for="username">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="username" name="username" placeholder="Nama Lengkap" required>
+                                <label for="nama">Nama Perusahaan</label>
+                                <input type="text" class="form-control" id="nama" name="nama" placeholder="PT..." required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -37,51 +37,9 @@
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                             </div>
-                            <hr>
-                            <h5>Data Diri</h5>
                             <div class="form-group">
-                                <label for="nisn">NISN</label>
-                                <input type="text" class="form-control" id="nisn" name="nisn" placeholder="NISN" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="sekolah">Asal SMP Sederajat</label>
-                                <input type="text" class="form-control" id="sekolah" name="sekolah" placeholder="SMP x Karanganyar" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="kota">Asal Kota</label>
-                                <input type="text" class="form-control" id="kota" name="kota" placeholder="Kota/Kabupaten" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="hp">No. HP</label>
-                                <input type="text" class="form-control" id="hp" name="hp" placeholder="Nomor Handphone" required>
-                            </div>
-                            <hr>
-                            <h5>PPDB</h5>
-                            <div class="form-group">
-                                <label for="skhun">Nomor SKHUN</label>
-                                <input type="text" class="form-control" id="skhun" name="skhun" placeholder="Nomor SKHUN SMP" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="nun">Nilai Ujian Nasional</label>
-                                <input type="text" class="form-control" id="nun" name="nun" placeholder="Nilai UN SMP" required>
-                            </div>
-                            <div class="row">
-                                <div class="col form-group">
-                                    <label for="ipa">IPA</label>
-                                    <input type="text" class="form-control" id="ipa" name="ipa" placeholder="Nilai IPA" required>
-                                </div>
-                                <div class="col form-group">
-                                    <label for="ind">B. Indonesia</label>
-                                    <input type="text" class="form-control" id="ind" name="ind" placeholder="Nilai B. Indo" required>
-                                </div>
-                                <div class="col form-group">
-                                    <label for="mtk">Matematika</label>
-                                    <input type="text" class="form-control" id="mtk" name="mtk" placeholder="Nilai Matematika" required>
-                                </div>
-                                <div class="col form-group">
-                                    <label for="eng">B. Inggris</label>
-                                    <input type="text" class="form-control" id="eng" name="eng" placeholder="Nilai B. Inggris" required>
-                                </div>
+                                <label for="alamat">Alamat</label>
+                                <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
