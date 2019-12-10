@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>mySMArt</title>
-
-    {{ assets.outputCss() }}
-    {{ assets.outputJs() }}
+    {% include "dashboard/partials/head.volt" %}
 </head>
 <body>
     {% include "dashboard/partials/navbarmhs.volt" %}

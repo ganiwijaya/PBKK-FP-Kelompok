@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>mySMArt</title>
-
-    {{ assets.outputCss() }}
-    {{ assets.outputJs() }}
+    {% include "dashboard/partials/head.volt" %}
 </head>
 <body>
     {% include "dashboard/partials/navbarmhs.volt" %}
@@ -14,7 +11,7 @@
         <nav id="sidebar" class="active">
             <ul class="list-unstyled components">
                 <li>
-                    {{ link_to('/beranda', '<i class="fa fa-home"></i> Utama', 'class': 'nav-link') }}
+                    {{ link_to('/beranda', '<i class="fa fa-home"></i> Beranda', 'class': 'nav-link') }}
                 </li>
                 <li class="active">
                     {{ link_to('/profil', '<i class="fa fa-user"></i> Profil', 'class': 'nav-link') }}
@@ -38,26 +35,8 @@
             {{ flashSession.output() }}
             <div class="card border-0 mb-3">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm">
-                            <h4>Profil</h4>
-                            Rincian akun Anda.
-                        </div>
-                        <div class="col-sm">
-                            <div class="dropdown">
-                                <button type="button" class="btn btn-primary btn-sm float-right mr-3y" data-toggle="dropdown">
-                                    <i class="fa fa-list"></i> Kelola
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    {{ link_to('/profil/edit', 'Edit', 'class': 'dropdown-item') }}
-                                    <form method="post" action="{{ url('/hapus') }}">   
-                                        <!-- <input type="submit" name="download" class="btn btn-success btn-sm float-right mr-3" value="Download"> -->
-                                        <button type="submit" name="hapus" id="hapus" class="dropdown-item">Hapus Akun</button>
-                                    </form>
-                                </div>
-                            </div>  
-                        </div>
-                    </div>
+                    <h4>Profil</h4>
+                    Rincian akun Anda.
                     <hr>
                     Nama<br>
                     <strong>{{ session.get('auth')['username'] }}</strong>
