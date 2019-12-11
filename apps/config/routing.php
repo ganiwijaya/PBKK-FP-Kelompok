@@ -157,6 +157,20 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'action' => 'kpambillagi'
 	]);
 
+	$router->addGet('/kp/batal/{id_pek}', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+		'action' => 'kpbatal'
+	]);
+
+	$router->addPost('/kp/batalya', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'kpbatallagi'
+	]);
+
 	$router->addGet('/ppdb2019', [
 	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
 		'module' => 'dashboard',

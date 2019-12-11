@@ -51,6 +51,7 @@
                         <tbody>
                             {{ session.get('auth')['sudahambil'] }}
                             {% for kerja in pekerjaan %}
+                            {% if kerja.status == 0 %}
                             <tr>
                                 <th>{{ kerja.judul }}</th>
                                 <th>{{ kerja.posisi }}</th>
@@ -60,6 +61,7 @@
                                     <a href="{{ url('/kp/ambil/' ~ kerja.id_pek) }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Ambil</a>
                                 </th>
                             </tr>
+                            {% endif %}
                             {% endfor  %}
                         </tbody>
 
@@ -73,7 +75,8 @@
                                 <th>{{ kerja.posisi }}</th>
                                 <th>{{ kerja.keterangan }}</th>
                                 <th>
-                                    {{ link_to('/perusahaan/pekerjaan/hapus ~ pekerjaan.id_pek', '<i class="fa fa-times"></i> Batalkan', 'class': 'btn btn-warning btn-sm') }}
+                                    <!-- {{ link_to('/perusahaan/pekerjaan/hapus ~ pekerjaan.id_pek', '<i class="fa fa-times"></i> Batalkan', 'class': 'btn btn-warning btn-sm') }} -->
+                                    <a href="{{ url('/kp/batal/' ~ kerja.id_pek) }}" class="btn btn-warning btn-sm"><i class="fa fa-times"></i> Batal</a>
                                 </th>
                             </tr>
                             {% endif %}

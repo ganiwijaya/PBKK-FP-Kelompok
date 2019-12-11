@@ -299,6 +299,68 @@ class DashboardController extends Controller
       }
     }
 
+    public function kpbatalAction($id_pek)
+    {
+        $this->view->pick('dashboard/kpbatal');
+        $this->assets->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false);
+        $this->assets->addCss('//geniuskaranganyar.com/assets/extra/css/style.css', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/solid.js', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/fontawesome.js', false);
+        $this->assets->addJs('//code.jquery.com/jquery-3.3.1.slim.min.js', false);
+        $this->assets->addJs('//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', false);
+        $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
+        $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
+
+        $pekerjaan = Pekerjaan::find();
+        $this->view->pekerjaan = $pekerjaan;
+        $mahasiswa = Mahasiswa::find();
+        $this->view->mahasiswa = $mahasiswa;
+
+        $pek = Pekerjaan::findFirst($id_pek);
+        $this->view->id_pek = $pek->id_pek;
+        $this->view->judul = $pek->judul;
+        $this->view->posisi = $pek->posisi;
+        $this->view->keterangan = $pek->keterangan;
+        $this->view->status = $pek->status;
+        $this->view->id_per = $pek->id_per;
+
+        $mhs = Mahasiswa::findFirst($id_mhs);
+        $this->view->id_mhs = $mhs->id_mhs;
+    }
+
+    public function kpbatallagiAction()
+    {
+    //   $pek = Pekerjaan::findFirst($id_pek);
+    //   $this->view->id_mhs = $pek->id_mhs;
+    //   $mhs = Mahasiswa::findFirst($id_mhs);
+    //   $this->view->sudahambil = $mhs->sudahambil;
+
+    //   $users->username = $this->request->getPost("username");
+    //   $users->email = $this->request->getPost("email");
+    //   $users->password = $this->request->getPost("password");
+    //   $users->kota = $this->request->getPost("kota");
+      $pek = $this->request->getPost("id_pek");
+      $pek = Pekerjaan::findFirst($id_pek);
+      $pek->status = $this->request->getPost("status");
+      $pek->id_mhs = $this->request->getPost("id_mhs");
+
+      $mhs = $this->request->getPost("id_mhs");
+      $mhs = Mahasiswa::findFirst($id_mhs);
+      $mhs->sudahambil = $this->request->getPost("sudahambil");
+
+
+      if (!$pek->save() || !$mhs->save()) 
+      {
+          $this->flashSession->error('Data gagal diperbarui. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+          $this->response->redirect('/kp');
+      }
+      else
+      {
+          $this->flashSession->success('Data berhasil diperbarui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+          $this->response->redirect('/kp');
+      }
+    }
+
     public function ppdb2019Action()
     {
         $this->view->pick('dashboard/ppdb2019');
