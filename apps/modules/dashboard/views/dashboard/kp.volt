@@ -43,30 +43,44 @@
                                 <th>Judul</th>
                                 <th>Posisi</th>
                                 <th>Keterangan</th>
-                                <th>Status</th>
                                 <th>Atur</th>
                             </tr>
                         </thead>
+
+                        {% if session.get('auth')['sudahambil'] == 0 %}
                         <tbody>
+                            {{ session.get('auth')['sudahambil'] }}
                             {% for kerja in pekerjaan %}
                             <tr>
                                 <th>{{ kerja.judul }}</th>
                                 <th>{{ kerja.posisi }}</th>
                                 <th>{{ kerja.keterangan }}</th>
                                 <th>
-                                    {%if kerja.status == "1" %}
-                                    <span class="btn btn-outline-danger btn-sm"><i class="fa fa-close"></i> Sudah diambil</span>
-                                    {% else %}
-                                    <span class="btn btn-outline-success btn-sm"><i class="fa fa-check"></i> Tersedia</span>
-                                    {% endif %}
-                                </th>
-                                <th>
-                                    {{ link_to('/kp/ambil', '<i class="fa fa-plus"></i> Ambil', 'class': 'btn btn-success btn-sm') }}
-                                    {{ link_to('/perusahaan/pekerjaan/hapus ~ pekerjaan.id_pek', '<i class="fa fa-times"></i> Batalkan', 'class': 'btn btn-warning btn-sm') }}
+                                    <!-- {{ link_to('/kp/ambil', '<i class="fa fa-plus"></i> Ambil', 'class': 'btn btn-success btn-sm') }} -->
+                                    <a href="{{ url('/kp/ambil/' ~ kerja.id_pek) }}" class="btn btn-success btn-sm">Ambil</a>
                                 </th>
                             </tr>
                             {% endfor  %}
                         </tbody>
+
+                        {% else %}
+                        <tbody>
+                            {{ session.get('auth')['sudahambil'] }}
+                            {% for kerja in pekerjaan %}
+                            {%if kerja.status == "0" and kerja.id_mhs == session.get('auth')['id_mhs'] %}
+                            <tr>
+                                <th>{{ kerja.judul }}</th>
+                                <th>{{ kerja.posisi }}</th>
+                                <th>{{ kerja.keterangan }}</th>
+                                <th>
+                                    {{ link_to('/perusahaan/pekerjaan/hapus ~ pekerjaan.id_pek', '<i class="fa fa-times"></i> Batalkan', 'class': 'btn btn-warning btn-sm') }}
+                                </th>
+                            </tr>
+                            {% endif %}
+                            {% endfor  %}
+                        </tbody>
+
+                        {% endif %}
                     </table>
                 </div>
             </div>

@@ -143,11 +143,18 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'action' => 'kp'
 	]);
 
-	$router->addGet('/kp/ambil', [
+	$router->addGet('/kp/ambil/{id_pek}', [
 	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
 		'module' => 'dashboard',
 	    'controller' => 'Dashboard',
-	    'action' => 'kpambil'
+		'action' => 'kpambil'
+	]);
+
+	$router->addPost('/kp/ambilya', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'kpambillagi'
 	]);
 
 	$router->addGet('/ppdb2019', [
@@ -164,11 +171,11 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'action' => 'download'
 	]);
 
-	$router->addPost('/hapus', [
+	$router->addPost('perusahaan/pekerjaan/hapus/{id_pek}', [
 	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
 		'module' => 'dashboard',
 	    'controller' => 'Dashboard',
-	    'action' => 'hapus'
+	    'action' => 'hapusdata'
 	]);
 
 	$router->addPost('/post_register', [

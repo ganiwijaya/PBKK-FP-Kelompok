@@ -248,6 +248,17 @@ class DashboardController extends Controller
         $this->assets->addJs('//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', false);
         $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
         $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
+
+        $pekerjaan = Pekerjaan::find();
+        $this->view->pekerjaan = $pekerjaan;
+    }
+
+    public function kpambillagiAction($id_pek, $id_mhs)
+    {
+      $pek = Pekerjaan::findFirstByid_pek($id_pek);
+      $this->view->id_mhs = $pek->id_mhs;
+      $mhs = Mahasiswa::findFirstByid_mhs($id_mhs);
+      $this->view->sudahambil = $mhs->sudahambil;
     }
 
     public function ppdb2019Action()
@@ -502,7 +513,7 @@ class DashboardController extends Controller
 
     public function hapusdataAction()
     {
-        $pekerjaan = Pekerjaan::findFirstById_pek($id_pek);
+        $pekerjaan = Pekerjaan::findFirstByid_pek($id_pek);
   
         if (!$pekerjaan->delete()) 
         {
