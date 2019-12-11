@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2019 at 06:22 AM
+-- Generation Time: Dec 11, 2019 at 12:31 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -61,7 +61,17 @@ INSERT INTO `logs` (`id`, `activity`, `timestamp`) VALUES
 (20, 'Create User', '2019-12-05 11:35:15'),
 (21, 'Create User', '2019-12-06 08:53:07'),
 (22, 'Create User', '2019-12-06 09:06:31'),
-(23, 'Create User', '2019-12-06 09:15:34');
+(23, 'Create User', '2019-12-06 09:15:34'),
+(24, 'Create User', '2019-12-10 09:15:52'),
+(25, 'Create User', '2019-12-10 09:32:32'),
+(26, 'Create User', '2019-12-10 09:47:10'),
+(27, 'Create User', '2019-12-10 10:28:32'),
+(28, 'Create User', '2019-12-10 10:29:18'),
+(29, 'Create User', '2019-12-10 11:03:01'),
+(30, 'Create User', '2019-12-10 11:50:11'),
+(31, 'Create User', '2019-12-10 12:55:34'),
+(32, 'Create User', '2019-12-10 12:56:43'),
+(33, 'Create User', '2019-12-11 11:17:20');
 
 -- --------------------------------------------------------
 
@@ -83,22 +93,24 @@ CREATE TABLE `users` (
   `ipa` varchar(6) NOT NULL,
   `ind` varchar(6) NOT NULL,
   `mtk` varchar(6) NOT NULL,
-  `eng` varchar(6) NOT NULL
+  `eng` varchar(6) NOT NULL,
+  `nrp` varchar(14) NOT NULL,
+  `id_pek` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `nisn`, `username`, `email`, `password`, `sekolah`, `kota`, `hp`, `skhun`, `nun`, `ipa`, `ind`, `mtk`, `eng`) VALUES
-(7, '9984711482', 'Ghannie Wijaya', 'ganiwijaya@live.com', '1234', 'SMP Negeri 8 Surakarta', 'Karanganyar', '087836284699', '123456789', '400', '100', '100', '100', '100'),
-(8, '99847111481', 'Bayu', 'bayu@gmail.com', '1234', 'SMP Negeri 8 Surakarta', 'Surabaya', '087836284699', '123456789', '400', '100', '100', '100', '100'),
-(9, '9984711483', 'Wahyu', 'wahyu@gmail.com', '1234', 'SMP Negeri 2 Karanganyar', 'Karanganyar', '087836284699', '123456789', '400', '100', '100', '100', '100'),
-(10, '9984711484', 'Irfan Aliansyah', 'irfan@gmail.com', '1234', 'SMP Negeri 3 Surakarta', 'Surakarta', '087812341234', '123456789', '400', '100', '100', '100', '100'),
-(11, '9984711485', 'Ghannie Wijaya', 'ganiwijaya@gmail.com', '1234', 'SMP Negeri 8 Surakarta', 'Karanganyar', '087836281199', '123123123', '400', '100', '100', '100', '100'),
-(12, '119191', 'Abdul Aziz', 'abdulaziz@123.com', '123', 'smp 12 pku', 'karangayang', '1', 'sgdy', '300', '100', '100', '50', '50'),
-(13, '19921', 'Aisyah Muswar', 'aisyahmuswar6@gmail.com', '123456', 'SMPN 1 Baubau', 'Baubau', '08123456789', '12131415', '400', '100', '100', '100', '100'),
-(14, '8588373743', 'Irfan', 'irfan@live.com', '1234', 'SMP Negeri 1 Karanganyar', 'Karanganyar', '087836284699', '734737479', '400', '100', '100', '100', '100');
+INSERT INTO `users` (`id`, `nisn`, `username`, `email`, `password`, `sekolah`, `kota`, `hp`, `skhun`, `nun`, `ipa`, `ind`, `mtk`, `eng`, `nrp`, `id_pek`) VALUES
+(7, '9984711482', 'Ghannie Wijaya', 'ganiwijaya@live.com', '1234', 'SMP Negeri 8 Surakarta', 'Karanganyar', '087836284699', '123456789', '400', '100', '100', '100', '100', '', 0),
+(8, '99847111481', 'Bayu', 'bayu@gmail.com', '1234', 'SMP Negeri 8 Surakarta', 'Surabaya', '087836284699', '123456789', '400', '100', '100', '100', '100', '', 0),
+(9, '9984711483', 'Wahyu', 'wahyu@gmail.com', '1234', 'SMP Negeri 2 Karanganyar', 'Karanganyar', '087836284699', '123456789', '400', '100', '100', '100', '100', '', 0),
+(10, '9984711484', 'Irfan Aliansyah', 'irfan@gmail.com', '1234', 'SMP Negeri 3 Surakarta', 'Surakarta', '087812341234', '123456789', '400', '100', '100', '100', '100', '', 0),
+(11, '9984711485', 'Ghannie Wijaya', 'ganiwijaya@gmail.com', '1234', 'SMP Negeri 8 Surakarta', 'Karanganyar', '087836281199', '123123123', '400', '100', '100', '100', '100', '', 0),
+(12, '119191', 'Abdul Aziz', 'abdulaziz@123.com', '123', 'smp 12 pku', 'karangayang', '1', 'sgdy', '300', '100', '100', '50', '50', '', 0),
+(13, '19921', 'Aisyah Muswar', 'aisyahmuswar6@gmail.com', '123456', 'SMPN 1 Baubau', 'Baubau', '08123456789', '12131415', '400', '100', '100', '100', '100', '', 0),
+(14, '8588373743', 'Irfan', 'irfan@live.com', '1234', 'SMP Negeri 1 Karanganyar', 'Karanganyar', '087836284699', '734737479', '400', '100', '100', '100', '100', '', 0);
 
 --
 -- Indexes for dumped tables
@@ -126,7 +138,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -138,45 +150,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-CREATE TABLE `perusahaan` (
-  `id_per` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `alamat` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-CREATE TABLE `pekerjaan` (
-  `id_pek` int(11) NOT NULL,
-  `judul` varchar(255) NOT NULL,
-  `posisi` varchar(255) NOT NULL,
-  `keterangan` varchar(255) NOT NULL,
-  `status` int(1) NOT NULL,
-  `id_per` int(11) NOT NULL,
-  `id_mhs` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-CREATE TABLE `mahasiswa` (
-  `id_mhs` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `nrp` varchar(14) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-ALTER TABLE `perusahaan`
-  ADD PRIMARY KEY (`id_per`),
-  MODIFY `id_per` int(11) NOT NULL AUTO_INCREMENT COMMENT '';
-
-ALTER TABLE `pekerjaan`
-  ADD PRIMARY KEY (`id_pek`),
-  MODIFY `id_pek` int(11) NOT NULL AUTO_INCREMENT COMMENT '',
-  ADD KEY `id_per` (`id_per`),
-  ADD KEY `id_mhs` (`id_mhs`),
-  ADD CONSTRAINT `id_per` FOREIGN KEY (`id_per`) REFERENCES `perusahaan` (`id_per`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `id_mhs` FOREIGN KEY (`id_mhs`) REFERENCES `mahasiswa` (`id_mhs`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-ALTER TABLE `mahasiswa`
-  ADD PRIMARY KEY (`id_mhs`),
-  MODIFY `id_mhs` int(11) NOT NULL AUTO_INCREMENT COMMENT '';
