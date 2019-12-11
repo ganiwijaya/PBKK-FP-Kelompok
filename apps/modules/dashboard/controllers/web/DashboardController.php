@@ -279,6 +279,7 @@ class DashboardController extends Controller
     //   $users->kota = $this->request->getPost("kota");
       $pek = $this->request->getPost("id_pek");
       $pek = Pekerjaan::findFirst($id_pek);
+      $pek->status = $this->request->getPost("status");
       $pek->id_mhs = $this->request->getPost("id_mhs");
 
       $mhs = $this->request->getPost("id_mhs");
