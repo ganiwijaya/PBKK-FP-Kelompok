@@ -29,18 +29,20 @@
             </div>
             {% endif %}
             {% if session.has('auth')%}
+            {{ flashSession.output() }}
             <div class="card mb-3 border-0">
                 <div class="card-body">
-                    <h4>Lowongan KP</h4>
-                    Daftar kerja praktik yang Anda buat.
-                    {{ link_to('/perusahaan/pekerjaan/tambah', 'Tambah', 'class': 'btn btn-success') }}
-                </div>
-            </div>
-            {{ flashSession.output() }}
-            <div class="card border-0">
-                <div class="card-body">
-                    <table class="table table-hover">
-                        <thead>
+                    <div class="row">
+                        <div class="col-sm">
+                            <h4>Lowongan KP</h4>
+                            Daftar kerja praktik yang Anda buat.
+                        </div>
+                        <div class="col-sm">
+                            {{ link_to('/perusahaan/pekerjaan/tambah', '<i class="fa fa-plus"></i> Buat', 'class': 'btn btn-primary float-right') }}
+                        </div>
+                    </div>
+                    <table class="table table-hover mt-3">
+                        <thead class="thead-light">
                             <tr>
                                 <th>Judul</th>
                                 <th>Posisi</th>
@@ -58,14 +60,14 @@
                                 <th>{{ kerja.keterangan }}</th>
                                 <th>
                                     {%if kerja.status == "1" %}
-                                    <span class="btn btn-danger btn-sm">Sudah diambil</span>
+                                    <span class="btn btn-outline-danger btn-sm"><i class="fa fa-close"></i> Sudah diambil</span>
                                     {% else %}
-                                    <span class="btn btn-success btn-sm">Tersedia</span>
+                                    <span class="btn btn-outline-success btn-sm"><i class="fa fa-check"></i> Tersedia</span>
                                     {% endif %}
                                 </th>
                                 <th>
-                                    <!-- <a href="{{ url('/perusahaan/pekerjaan/hapus/' ~ pekerjaan.id_pek) }}">Hapus</a> -->
-                                    {{ link_to('/perusahaan/pekerjaan/hapus ~ kerja.id_pek', 'Hapus', 'class': 'btn btn-danger btn-sm') }}
+                                    <a href="{{ url('/perusahaan/pekerjaan/hapus/' ~ kerja.id_pek) }}" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda akan menghapus data ? ');"><i class="fa fa-trash"></i> Hapus</a>
+                                    <!-- {{ link_to('/perusahaan/pekerjaan/hapus ~ kerja.id_pek', 'Hapus', 'class': 'btn btn-danger btn-sm') }} -->
                                 </th>
                                 {% endif %}
                             </tr>

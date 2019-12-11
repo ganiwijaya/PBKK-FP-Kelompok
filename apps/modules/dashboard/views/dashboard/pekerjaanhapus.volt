@@ -21,7 +21,6 @@
         {% endif %}
 
         <div id="content">
-            <h6>{{ link_to('/perusahaan/pekerjaan', '<i class="fa fa-arrow-left"></i>', 'class': 'mb-3') }} &nbsp&nbsp&nbsp Kembali</h6>
             {% if session.has('auth') == false %}
             <div class="card mb-3 border-0">
                 <div class="card-body">
@@ -30,29 +29,29 @@
             </div>
             {% endif %}
             {% if session.has('auth')%}
-            {{ flashSession.output() }}
             <div class="card mb-3 border-0">
                 <div class="card-body">
-                    <h4>Buat Lowongan KP</h4>
-                    Isi secara detail.
+                    <h4>Hapus Data</h4>
+                    Apakah Anda yakin ingin menghapus data?
                     <hr>
+                    <h5>Keterangan</h5>
                     <form action="{{ url('/post_pek') }}" method="POST">
                         <div class="form-group">
                             <label for="judul">Judul Pekerjaan</label>
-                            <input type="text" class="form-control" id="judul" name="judul" placeholder="Jelaskan secara singkat" required>
+                            <input type="text" class="form-control" id="judul" name="judul" placeholder="Jelaskan secara singkat" readonly>
                         </div>
                         <div class="form-group">
                             <label for="posisi">Posisi</label>
-                            <input type="text" class="form-control" id="posisi" name="posisi" placeholder="Posisi yang bisa diambil" required>
+                            <input type="text" class="form-control" id="posisi" name="posisi" placeholder="Posisi yang bisa diambil" readonly>
                         </div>
                         <div class="form-group">
                             <label for="keterangan">Keterangan</label>
-                            <textarea class="form-control" id="keterangan" name="keterangan" rows="3" placeholder="Keterangan seputar lowongan pekerjaan" required></textarea>
+                            <textarea class="form-control" id="keterangan" name="keterangan" rows="3" placeholder="Keterangan seputar lowongan pekerjaan" readonly></textarea>
                         </div>
                         <input type="hidden" id="status" name="status" value="0">
                         <input type="hidden" id="id_per" name="id_per" value="{{ session.get('auth')['id_per'] }}">
                         <input type="hidden" id="id_mhs" name="id_mhs" value="1">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Buat</button>
+                        <button type="submit" class="btn btn-danger">Hapus</button>
                     </form>
                 </div>
             </div>

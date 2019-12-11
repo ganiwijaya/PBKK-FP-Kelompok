@@ -17,7 +17,7 @@
                     {{ link_to('/profil', '<i class="fa fa-user"></i> Profil', 'class': 'nav-link') }}
                 </li>
                 <li>
-                    {{ link_to('/ppdb', '<i class="fa fa-list"></i> KP', 'class': 'nav-link') }}
+                    {{ link_to('/kp', '<i class="fa fa-list"></i> KP', 'class': 'nav-link') }}
                 </li>
             </ul>
         </nav>
@@ -39,13 +39,13 @@
                     Rincian akun Anda.
                     <hr>
                     Nama<br>
-                    <strong>{{ session.get('auth')['username'] }}</strong>
+                    <strong>{{ session.get('auth')['nama'] }}</strong>
                     <hr>
                     Email<br>
                     <strong>{{ session.get('auth')['email'] }}</strong>
                     <hr>
-                    Asal Kota<br>
-                    <strong>{{ session.get('auth')['kota'] }}</strong>
+                    NRP<br>
+                    <strong>{{ session.get('auth')['nrp'] }}</strong>
                 </div>
             </div>
             {% endif %}

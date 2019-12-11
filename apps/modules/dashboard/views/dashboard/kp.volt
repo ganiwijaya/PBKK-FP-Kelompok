@@ -17,7 +17,7 @@
                     {{ link_to('/profil', '<i class="fa fa-user"></i> Profil', 'class': 'nav-link') }}
                 </li>
                 <li class="active">
-                    {{ link_to('/ppdb', '<i class="fa fa-list"></i> KP', 'class': 'nav-link') }}
+                    {{ link_to('/kp', '<i class="fa fa-list"></i> KP', 'class': 'nav-link') }}
                 </li>
             </ul>
         </nav>
@@ -32,17 +32,13 @@
             </div>
             {% endif %}
             {% if session.has('auth')%}
+            {{ flashSession.output() }}
             <div class="card mb-3 border-0">
                 <div class="card-body">
-                    <h4>Pendaftaran PPDB SMA Lawu 2019</h4>
-                    Data pendaftar.
-                </div>
-            </div>
-            {{ flashSession.output() }}
-            <div class="card border-0">
-                <div class="card-body">
-                    <table class="table table-hover">
-                        <thead>
+                    <h4>Daftar KP</h4>
+                    Lowongan KP yang tersedia.
+                    <table class="table table-hover mt-3">
+                        <thead class="thead-light">
                             <tr>
                                 <th>Judul</th>
                                 <th>Posisi</th>
@@ -59,14 +55,14 @@
                                 <th>{{ kerja.keterangan }}</th>
                                 <th>
                                     {%if kerja.status == "1" %}
-                                    <span class="btn btn-danger btn-sm">Sudah diambil</span>
+                                    <span class="btn btn-outline-danger btn-sm"><i class="fa fa-close"></i> Sudah diambil</span>
                                     {% else %}
-                                    <span class="btn btn-success btn-sm">Tersedia</span>
+                                    <span class="btn btn-outline-success btn-sm"><i class="fa fa-check"></i> Tersedia</span>
                                     {% endif %}
                                 </th>
                                 <th>
-                                    <span class="btn btn-danger btn-sm">Sudah diambil</span>
-                                    {{ link_to('/perusahaan/pekerjaan/hapus ~ pekerjaan.id_pek', 'Batalkan', 'class': 'btn btn-primary btn-sm') }}
+                                    {{ link_to('/perusahaan/pekerjaan/hapus', '<i class="fa fa-plus"></i> Ambil', 'class': 'btn btn-success btn-sm') }}
+                                    {{ link_to('/perusahaan/pekerjaan/hapus ~ pekerjaan.id_pek', '<i class="fa fa-times"></i> Batalkan', 'class': 'btn btn-warning btn-sm') }}
                                 </th>
                             </tr>
                             {% endfor  %}

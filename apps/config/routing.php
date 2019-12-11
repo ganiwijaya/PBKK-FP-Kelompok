@@ -136,11 +136,18 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'action' => 'editppdb1'
 	]);
 
-	$router->addGet('/ppdb', [
+	$router->addGet('/kp', [
 	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
 		'module' => 'dashboard',
 	    'controller' => 'Dashboard',
-	    'action' => 'ppdb'
+	    'action' => 'kp'
+	]);
+
+	$router->addGet('/kp/ambil', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'kpambil'
 	]);
 
 	$router->addGet('/ppdb2019', [
@@ -196,7 +203,14 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
 		'module' => 'dashboard',
 	    'controller' => 'Dashboard',
-	    'action' => 'hapus'
+	    'action' => 'pekerjaanhapus'
+	]);
+
+	$router->addPost('/perusahaan/pekerjaan/hapus', [
+	    'namespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
+		'module' => 'dashboard',
+	    'controller' => 'Dashboard',
+	    'action' => 'hapusdata'
 	]);
 
 	$router->addPost('/login', [

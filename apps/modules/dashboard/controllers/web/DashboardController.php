@@ -221,9 +221,9 @@ class DashboardController extends Controller
         }
     }
 
-    public function ppdbAction()
+    public function kpAction()
     {
-        $this->view->pick('dashboard/ppdb');
+        $this->view->pick('dashboard/kp');
         $this->assets->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false);
         $this->assets->addCss('//geniuskaranganyar.com/assets/extra/css/style.css', false);
         $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/solid.js', false);
@@ -235,6 +235,19 @@ class DashboardController extends Controller
 
         $pekerjaan = Pekerjaan::find();
         $this->view->pekerjaan = $pekerjaan;
+    }
+
+    public function kpambilAction()
+    {
+        $this->view->pick('dashboard/kpambil');
+        $this->assets->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false);
+        $this->assets->addCss('//geniuskaranganyar.com/assets/extra/css/style.css', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/solid.js', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/fontawesome.js', false);
+        $this->assets->addJs('//code.jquery.com/jquery-3.3.1.slim.min.js', false);
+        $this->assets->addJs('//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', false);
+        $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
+        $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
     }
 
     public function ppdb2019Action()
@@ -473,9 +486,23 @@ class DashboardController extends Controller
         $this->response->redirect('/');
     }
 
-    public function hapusAction()
+    public function pekerjaanhapusAction()
     {
-        $pekerjaan = Pekerjaan::findFirstById($id_pek);
+        $this->view->pick('dashboard/pekerjaanhapus');
+        $this->assets->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false);
+        $this->assets->addCss('//geniuskaranganyar.com/assets/extra/css/style.css', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/solid.js', false);
+        $this->assets->addJs('//use.fontawesome.com/releases/v5.0.13/js/fontawesome.js', false);
+        $this->assets->addJs('//code.jquery.com/jquery-3.3.1.slim.min.js', false);
+        $this->assets->addJs('//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', false);
+        $this->assets->addJs('//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', false); 
+        $this->assets->addJs('//geniuskaranganyar.com/assets/extra/js/style.js', false);
+
+    }
+
+    public function hapusdataAction()
+    {
+        $pekerjaan = Pekerjaan::findFirstById_pek($id_pek);
   
         if (!$pekerjaan->delete()) 
         {
@@ -487,6 +514,7 @@ class DashboardController extends Controller
             $this->flashSession->success('Berhasil hapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
             $this->response->redirect('/perusahaan/pekerjaan');
         }
+        // var_dump($user->getMessages());die();
     }
 
     public function navbarAction()
