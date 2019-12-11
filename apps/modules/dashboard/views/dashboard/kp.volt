@@ -57,7 +57,7 @@
                                 <th>{{ kerja.keterangan }}</th>
                                 <th>
                                     <!-- {{ link_to('/kp/ambil', '<i class="fa fa-plus"></i> Ambil', 'class': 'btn btn-success btn-sm') }} -->
-                                    <a href="{{ url('/kp/ambil/' ~ kerja.id_pek) }}" class="btn btn-success btn-sm">Ambil</a>
+                                    <a href="{{ url('/kp/ambil/' ~ kerja.id_pek) }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Ambil</a>
                                 </th>
                             </tr>
                             {% endfor  %}
@@ -67,7 +67,7 @@
                         <tbody>
                             {{ session.get('auth')['sudahambil'] }}
                             {% for kerja in pekerjaan %}
-                            {%if kerja.status == "0" and kerja.id_mhs == session.get('auth')['id_mhs'] %}
+                            {%if kerja.status == 1 %}
                             <tr>
                                 <th>{{ kerja.judul }}</th>
                                 <th>{{ kerja.posisi }}</th>

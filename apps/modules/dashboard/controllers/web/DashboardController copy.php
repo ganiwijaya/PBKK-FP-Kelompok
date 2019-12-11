@@ -254,7 +254,20 @@ class DashboardController extends Controller
         $mahasiswa = Mahasiswa::find();
         $this->view->mahasiswa = $mahasiswa;
 
-        $pek = Pekerjaan::findFirst($id_pek);
+        // $id_pek = $this->request->getPost("id_pek");
+        // $pek = Pekerjaan::findFirst([
+
+        // ]);
+
+        $pek = Pekerjaan::find([
+            "conditions" => "id_pek = ?1",
+            'bind' => [
+                1 => $id_pek,
+            ]
+        ]);
+
+        // var_dump($pek);die();
+
         $this->view->id_pek = $pek->id_pek;
         $this->view->judul = $pek->judul;
         $this->view->posisi = $pek->posisi;
@@ -262,11 +275,12 @@ class DashboardController extends Controller
         $this->view->status = $pek->status;
         $this->view->id_per = $pek->id_per;
 
-        $mhs = Mahasiswa::findFirst($id_mhs);
+        $id_mhs = $this->request->getPost("id_mhs");
+        $mhs = Mahasiswa::findFirstByidMhs($id_mhs);
         $this->view->id_mhs = $mhs->id_mhs;
     }
 
-    public function kpambillagiAction()
+    public function kpambillagiAction($id_pek)
     {
     //   $pek = Pekerjaan::findFirst($id_pek);
     //   $this->view->id_mhs = $pek->id_mhs;
@@ -277,10 +291,15 @@ class DashboardController extends Controller
     //   $users->email = $this->request->getPost("email");
     //   $users->password = $this->request->getPost("password");
     //   $users->kota = $this->request->getPost("kota");
-      $pek = $this->request->getPost("id_pek");
-      $pek = Pekerjaan::findFirst($id_pek);
-      $pek->id_mhs = $this->request->getPost("id_mhs");
+    //   $id_pek = $this->request->getPost("id_pek");
+      $pek = Pekerjaan::find([
+        "conditions" => "id_pek = ?1",
+        'bind' => [
+            1 => $id_pek,
+        ]
+    ]);
 
+      $pek->id_mhs = $this->request->getPost("id_mhs");
       $mhs = $this->request->getPost("id_mhs");
       $mhs = Mahasiswa::findFirst($id_mhs);
       $mhs->sudahambil = $this->request->getPost("sudahambil");
