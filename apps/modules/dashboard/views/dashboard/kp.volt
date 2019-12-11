@@ -61,7 +61,7 @@
                                     {% endif %}
                                 </th>
                                 <th>
-                                    {{ link_to('/perusahaan/pekerjaan/hapus', '<i class="fa fa-plus"></i> Ambil', 'class': 'btn btn-success btn-sm') }}
+                                    {{ link_to('/kp/ambil', '<i class="fa fa-plus"></i> Ambil', 'class': 'btn btn-success btn-sm') }}
                                     {{ link_to('/perusahaan/pekerjaan/hapus ~ pekerjaan.id_pek', '<i class="fa fa-times"></i> Batalkan', 'class': 'btn btn-warning btn-sm') }}
                                 </th>
                             </tr>
